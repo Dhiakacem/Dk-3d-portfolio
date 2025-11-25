@@ -41,7 +41,7 @@ import archivefy from "./archivefy.png";
 import hgh from "./hgh.png";
 import mobiles from "./mobile.jpg";
 import java from "./tech/java.png";
-import Qcmed from "./qcmed.png";
+import Qcmed from "./QcMed.png";
 import noz from "./noz.png";
 import portfolio from "./portfolio.png";
 
