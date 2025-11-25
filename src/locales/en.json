@@ -1,0 +1,242 @@
+{
+    "nav": {
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "language": "Language",
+        "switch_to_light": "Switch to light mode",
+        "switch_to_dark": "Switch to dark mode",
+        "light_mode": "Light",
+        "dark_mode": "Dark"
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "subtitle": "Full-Stack Developer specialized in Angular & Spring Boot",
+        "subtitle2": "Building scalable microservices and real-time dashboards"
+    },
+    "about": {
+        "intro": "Introduction",
+        "overview": "Overview.",
+        "description": "I'm a Full-Stack Developer specialized in Angular and Spring Boot with expertise in designing modular microservice architectures. Experienced in building interactive dashboards, implementing CI/CD pipelines, and developing Flutter mobile applications. I'm passionate about innovative projects and real-time data visualization. Quick learner and collaborative team player who creates efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!"
+    },
+    "service": {
+        "fullstack": "Full-Stack Developer",
+        "frontend": "Frontend Engineer (Angular & React)",
+        "mobile": "Mobile Developer (Flutter)",
+        "backend": "Backend Engineer (Spring Boot & NestJS)"
+    },
+    "tech": {
+        "subtitle": "Technologies & Tools",
+        "html": "HTML 5",
+        "css": "CSS 3",
+        "javascript": "JavaScript",
+        "typescript": "TypeScript",
+        "react": "React JS",
+        "angular": "Angular",
+        "flutter": "Flutter",
+        "springboot": "Spring Boot",
+        "mongodb": "MongoDB",
+        "threejs": "Three JS",
+        "git": "Git",
+        "figma": "Figma",
+        "docker": "Docker",
+        "ngzorro": "Ng-Zorro",
+        "echarts": "ECharts",
+        "microservices": "Microservices",
+        "kubernetes": "Kubernetes",
+        "nestjs": "NestJS",
+        "dart": "Dart",
+        "gitlab": "GitLab CI/CD",
+        "symfony": "Symfony",
+        "restapi": "REST API",
+        "websocket": "WebSocket",
+        "java": "java"
+    },
+    "exp": {
+        "arsela": {
+            "title": "Full-Stack Developer",
+            "points": [
+                "Developing and maintaining scalable full-stack Angular & Spring Boot applications used in real-time energy management.",
+                "Building modern interactive dashboards using Ng-Zorro & ECharts for consumption analytics and KPI tracking.",
+                "Designing modular microservice architectures with clean domain separation and reusable components.",
+                "Implementing automated CI/CD pipelines using GitLab and Docker to streamline deployment and improve reliability.",
+                "Collaborating in Agile teams and participating in code reviews, sprint planning, and architectural discussions."
+            ]
+        },
+        "qcmed": {
+            "title": "Full-Stack Developer (Part-Time)",
+            "points": [
+                "Developed a full e-learning quiz platform for medical students preparing for residency exams.",
+                "Created a Flutter mobile app with intuitive UX, quiz sessions, correction mode, and progress tracking.",
+                "Implemented the web dashboard in Angular with real-time statistics, categories, and question filters.",
+                "Designed and optimized the MongoDB schema for fast question retrieval and scalable data storage.",
+                "Integrated Angular, Flutter, and NestJS through well-structured REST APIs to ensure a unified experience."
+            ]
+        },
+        "sbi": {
+            "title": "Full-Stack Developer",
+            "points": [
+                "Developed full-stack enterprise applications using Angular, Spring Boot, and modular microservice design.",
+                "Built real-time dashboards for smart-meter management and consumption visualization.",
+                "Automated CI/CD workflows using GitLab and Docker to improve deployment efficiency.",
+                "Implemented a cross-platform Flutter mobile app for energy monitoring and push notifications.",
+                "Participated in Agile ceremonies and improved team velocity through documentation and code reviews."
+            ]
+        },
+        "veo": {
+            "title": "Frontend Developer",
+            "points": [
+                "Developed features for the internal carpooling platform NozCovoiturage using React.js.",
+                "Integrated REST APIs built in Symfony while ensuring consistent UI/UX across modules.",
+                "Improved application performance and reduced load times with optimized components.",
+                "Contributed to GitLab CI/CD configurations for automated builds and quality checks."
+            ]
+        }
+    },
+    "project": {
+        "abronubes_web": {
+            "name": "Abronubes Web Platform",
+            "title": "Abronubes Web Platform",
+            "description": "A modern heating and energy management platform featuring real-time monitoring, advanced analytics, and a scalable microservices architecture.",
+            "features": [
+                "Real-time energy dashboards",
+                "Scalable microservices architecture"
+            ]
+        },
+        "abronubes_mobile": {
+            "name": "Abronubes Mobile App",
+            "title": "Abronubes Mobile App",
+            "description": "A mobile client application for monitoring heating systems, providing instant notifications, detailed consumption insights, and offline access.",
+            "features": [
+                "Instant real-time notifications",
+                "Detailed energy consumption tracking",
+                "Offline mode support"
+            ]
+        },
+        "archivefy": {
+            "name": "Archivefy Web Platform",
+            "title": "Archivefy Web Platform",
+            "description": "A robust document management and archiving platform offering advanced search capabilities, secure file handling, and granular user access control.",
+            "features": [
+                "Document upload and centralized management",
+                "Advanced full-text search",
+                "Granular role-based access control"
+            ]
+        },
+        "qcmed_quiz": {
+      "name": "QCmed Quiz Platform",
+      "title": "QCmed Quiz Platform",
+      "description": "A comprehensive e-learning quiz platform for medical students featuring interactive quizzes, progress tracking, and real-time analytics.",
+      "features": [
+        "Interactive quiz sessions with timer",
+        "Progress tracking and statistics",
+        "Real-time performance analytics"
+      ]
+    },
+    "veo_carpool": {
+      "name": "Veo Carpool Platform",
+      "title": "Veo Carpool Platform", 
+      "description": "An internal carpooling platform for employees featuring ride matching, scheduling, progress tracking and real-time notifications.",
+      "features": [
+        "Ride matching and scheduling",
+        "Real-time notifications",
+        "User rating and feedback system"
+      ]
+    },
+    "portfolio_site": {
+            "name": "3D Developer Portfolio",
+            "title": "3D Developer Portfolio",
+            "description": "A personal showcase built with React, Tailwind CSS, and Three.js featuring immersive hero scenes, theme switching, and multilingual content.",
+            "features": [
+                "Interactive hero powered by React Three Fiber",
+                "Responsive layout styled with Tailwind CSS",
+                "Dynamic language and theme switching"
+            ]
+        },
+        "category": {
+            "arsela": "Arsela Technologies Projects",
+            "mobile": "Mobile Development",
+            "web": "Web Development"
+        }
+    },
+    "tag": {
+        "angular": "angular",
+        "springboot": "spring-boot",
+        "docker": "docker",
+        "flutter": "flutter",
+        "dart": "dart",
+        "mongodb": "mongodb",
+         "nestjs": "nestjs",
+    "react": "react",
+    "javascript": "javascript", 
+    "symfony": "symfony",
+    "tailwind": "tailwindcss",
+    "threejs": "three.js"
+    },
+    "contact": {
+        "get_in_touch": "Get in touch",
+        "title": "Contact.",
+        "name_label": "Your Name",
+        "name_placeholder": "What's your good name?",
+        "email_label": "Your email",
+        "email_placeholder": "What's your web address?",
+        "message_label": "Your Message",
+        "message_placeholder": "What you want to say?",
+        "sending": "Sending...",
+        "send": "Send",
+        "success": "Thank you. I will get back to you as soon as possible.",
+        "error": "Ahh, something went wrong. Please try again."
+    },
+    "cv": {
+        "subtitle": "Curriculum Vitae",
+        "title": "Download CV",
+        "choose": "Choose language and download a clean PDF.",
+        "english": "English",
+        "french": "Français",
+        "download": "Download",
+        "fallback": "If download fails, email me for help.",
+        "file": "File"
+    },
+    "experience": {
+        "subtitle": "What I have done so far",
+        "title": "Work Experience.",
+        "description": "From full-stack development to mobile applications, here's a comprehensive overview of my professional journey and achievements.",
+        "tech_stack": "🛠️ Tech Stack"
+    },
+    "stats": {
+        "years_experience": "Years Experience",
+        "companies": "Companies",
+        "technologies": "Technologies"
+    },
+    "works": {
+        "subtitle": "My work",
+        "title": "Projects.",
+        "description": "Following projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.",
+        "certifications_title": "Certifications",
+        "education_title": "Education",
+        "prev_projects": "Scroll previous projects",
+        "next_projects": "Scroll next projects",
+        "view_code": "View source code"
+    },
+    "edu": {
+        "ims": {
+            "school": "International Multidisciplinary School",
+            "degree": "Engineering Cycle in Computer Science",
+            "location": "Sousse, Tunisia"
+        },
+        "issat": {
+            "school": "ISSAT Sousse",
+            "degree": "Applied Bachelor's Degree in Computer Engineering",
+            "location": "Sousse, Tunisia"
+        }
+    },
+    "cert": {
+        "jetbrains": "JetBrains Academy — Java Developer",
+        "flutter_dart": "Flutter & Dart – Complete Course (Udemy)"
+    },
+    "profile": {
+        "name": "Dhia Kacem",
+        "title": "Full-Stack Developer | Angular & Spring Boot"
+    }
+}

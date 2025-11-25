@@ -5,6 +5,7 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
+import avatar from "./avatar.png";
 import close from "./close.svg";
 
 import css from "./tech/css.png";
@@ -28,7 +29,21 @@ import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import tripguide from "./archivefy.png";
+import angular from "./tech/angular.png";
+import flutter from "./tech/flutter.png";
+import springboot from "./tech/spring-boot.png";
+import arsela from "./company/arsela.png";
+import sbi from "./company/sbi.png";
+import veo from "./company/veo.png";
+import qcmed from "./company/qcmed.png";
+import archivefy from "./archivefy.png";
+import hgh from "./hgh.png";
+import mobiles from "./mobile.jpg";
+import java from "./tech/java.png";
+import Qcmed from "./qcmed.png";
+import noz from "./noz.png";
+import portfolio from "./portfolio.png";
 
 export {
   logo,
@@ -59,4 +74,19 @@ export {
   carrent,
   jobit,
   tripguide,
+  angular,
+  flutter,
+  springboot,
+  arsela,
+  sbi,
+  veo,
+  avatar,
+  qcmed,
+  archivefy,
+  mobiles,
+  hgh,
+  java,
+  Qcmed,
+  noz,
+  portfolio
 };
