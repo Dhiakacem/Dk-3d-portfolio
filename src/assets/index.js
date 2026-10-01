@@ -5,7 +5,7 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
-import avatar from "./avatar.png";
+import avatar from "./avatar.webp";
 import close from "./close.svg";
 
 import css from "./tech/css.png";
@@ -15,35 +15,29 @@ import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
-import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import kotlin from "./tech/kotlin.svg";
+import jetpackcompose from "./tech/jetpackcompose.svg";
+import postgresql from "./tech/postgresql.svg";
+import gitlab from "./tech/gitlab.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
-
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./archivefy.png";
 import angular from "./tech/angular.png";
 import flutter from "./tech/flutter.png";
 import springboot from "./tech/spring-boot.png";
 import arsela from "./company/arsela.png";
+import imset from "./company/imset.webp";
 import sbi from "./company/sbi.png";
 import veo from "./company/veo.png";
 import qcmed from "./company/qcmed.png";
-import archivefy from "./archivefy.png";
-import hgh from "./hgh.png";
+import archivefy from "./archivefy.webp";
+import hgh from "./hgh.webp";
 import mobiles from "./mobile.jpg";
 import java from "./tech/java.png";
-import QcmedProjects from "./QcMedProject.png";
-import noz from "./noz.png";
-import portfolio from "./portfolio.png";
+import QcmedProjects from "./QcMedProject.webp";
+import noz from "./noz.webp";
+import portfolio from "./portfolio.webp";
 
 export {
   logo,
@@ -61,23 +55,18 @@ export {
   html,
   javascript,
   mongodb,
-  nodejs,
   reactjs,
-  redux,
-  tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
-  carrent,
-  jobit,
-  tripguide,
+  kotlin,
+  jetpackcompose,
+  postgresql,
+  gitlab,
   angular,
   flutter,
   springboot,
   arsela,
+  imset,
   sbi,
   veo,
   avatar,

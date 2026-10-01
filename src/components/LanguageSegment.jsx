@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const LANGUAGES = [
@@ -37,14 +36,12 @@ const LanguageSegment = ({ className = "", onAfterChange }) => {
             onClick={() => handleChange(lang.code)}
             aria-pressed={isActive}
             className={`relative overflow-hidden px-3 sm:px-4 py-1 rounded-full transition-colors duration-300 ease-out ${
-              isActive ? "text-primary dark:text-white" : "text-secondary hover:text-white"
+              isActive ? "text-[#2A1E4B] dark:text-white" : "text-secondary hover:text-[#7742D3] dark:hover:text-white"
             }`}
           >
             {isActive && (
-              <motion.span
-                layoutId="language-pill"
-                className="absolute inset-0 rounded-full bg-white/90 dark:bg-white/15 shadow-md"
-                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              <span
+                className="absolute inset-0 rounded-full bg-[#DED4FF] dark:bg-white/15 shadow-md"
               />
             )}
             <span className="relative tracking-wide">{lang.label}</span>

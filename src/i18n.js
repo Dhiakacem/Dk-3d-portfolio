@@ -29,4 +29,7 @@ i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false },
 });
 
+const updateDocumentLanguage = (language) => { document.documentElement.lang = language.split("-")[0]; };
+i18n.on("languageChanged", updateDocumentLanguage);
+updateDocumentLanguage(i18n.language);
 export default i18n;

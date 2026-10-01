@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -34,7 +33,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 80);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -43,10 +42,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <motion.nav
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <nav
       className={`${
         styles.paddingX
       } w-full flex items-center py-4 fixed top-0 z-50 transition-colors duration-300 ease-out ${
@@ -64,7 +60,7 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <img src={avatar} alt="logo" className="w-9 h-9 rounded-full object-cover" />
+          <img src={avatar} alt="Dhia Kacem" width="36" height="36" className="w-9 h-9 rounded-full object-cover" />
           <p className="text-white text-[18px] font-semibold cursor-pointer tracking-tight">
             {t("profile.name")}
           </p>
@@ -92,9 +88,10 @@ const Navbar = () => {
           <ThemeToggle />
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center rounded-md bg-black/40 dark:bg-black/30 border border-white/5"
+            className="w-8 h-8 flex items-center justify-center rounded-md bg-primary-light/80 dark:bg-black/30 border border-white/5"
             onClick={() => setOpen((prev) => !prev)}
-            aria-label="Toggle menu"
+            aria-label={t("nav.menu")}
+            aria-expanded={open}
           >
             <img
               src={open ? close : menu}
@@ -104,13 +101,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        <AnimatePresence>
           {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+            <div
               className="sm:hidden absolute top-16 inset-x-4 rounded-2xl bg-primary dark:bg-primary-dark border border-white/10 shadow-2xl mobile-menu-backdrop"
             >
               <div className="p-5 space-y-4">
@@ -126,6 +118,8 @@ const Navbar = () => {
                         onClick={() => {
                           setActive(nav.id);
                           setOpen(false);
+                          window.location.hash = nav.id;
+                          window.dispatchEvent(new Event("portfolio:navigate"));
                           const el = document.querySelector(`#${nav.id}`);
                           if (el) {
                             el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -145,11 +139,10 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

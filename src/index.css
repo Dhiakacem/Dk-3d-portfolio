@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "@fontsource/poppins/latin-400.css";
+@import "@fontsource/poppins/latin-500.css";
+@import "@fontsource/poppins/latin-600.css";
+@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/poppins/latin-800.css";
 
 @tailwind base;
 @tailwind components;
@@ -8,16 +12,48 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  color-scheme: dark;
-  transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 
 :root,
 body {
   background-color: #050816;
   color: #f3f3f3;
+  font-family: "Poppins", sans-serif;
+  overflow-x: clip;
+}
+
+html { color-scheme: dark; }
+html:not(.dark) { color-scheme: light; }
+html:not(.dark) body { background-color: #F7F4FF; color: #20173B; }
+
+.dark .text-secondary { color: #aaa6c3; }
+html:not(.dark) .bg-hero-pattern {
+  background-image: linear-gradient(120deg, rgba(247,244,255,.93), rgba(235,228,255,.85)), url('./assets/herobg.webp');
+}
+html:not(.dark) .bg-hero-pattern .text-white,
+html:not(.dark) nav .text-white { color: #20173B; }
+html:not(.dark) .bg-hero-pattern .text-white-100 { color: #51496B; }
+html:not(.dark) .bg-hero-pattern .text-\[\#915EFF\] { color: #7742D3; }
+html:not(.dark) nav a:hover,
+html:not(.dark) nav li:hover { color: #7742D3; }
+html:not(.dark) nav button img { filter: brightness(0) saturate(100%) invert(17%) sepia(34%) saturate(1322%) hue-rotate(222deg); }
+html:not(.dark) .portfolio-content .text-white,
+html:not(.dark) .portfolio-content .text-white-100 { color: #20173B; }
+html:not(.dark) .portfolio-content .bg-tertiary,
+html:not(.dark) .portfolio-content .bg-primary-light { border-color: rgba(103,58,183,.16); }
+html:not(.dark) .portfolio-content a[download],
+html:not(.dark) .portfolio-content [aria-pressed="true"] { color: #fff; }
+html:not(.dark) .portfolio-content .scene-placeholder-earth {
+  background: radial-gradient(circle at 30% 30%, #d6cbfa, #8b75c2 65%, #51418d);
+  box-shadow: inset -25px -20px 50px #695a9b, 0 0 70px #915eff30;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 .no-scrollbar {
@@ -258,4 +294,11 @@ body.menu-open {
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #7c3aed;
+}
+
+.scene-placeholder { width: 100%; height: 100%; }
+.bg-hero-pattern { background-image: url('./assets/herobg.webp'); }
+.scene-placeholder-earth { border-radius: 50%; max-width: 340px; height: 340px; margin: auto; background: radial-gradient(circle at 30% 30%, #6477bf, #171536 65%, #050816); box-shadow: inset -25px -20px 50px #020617, 0 0 70px #915eff20; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

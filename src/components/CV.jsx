@@ -39,34 +39,16 @@ const cardVariants = {
 };
 
 const CV = () => {
-  const [lang, setLang] = useState("en");
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [selection, setLang] = useState(null);
+  const lang = selection || i18n.resolvedLanguage || "en";
 
-  const filename = lang === "en" ? "CV_DhiaKacem_En.pdf" : "CV_DhiaKacem_Fr.pdf";
+  const filename = lang === "en" ? "DHIA_KACEM_EN.pdf" : "KACEM_DHIA_FR.pdf";
   const fileUrl = lang === "en" ? cv.en : cv.fr;
 
-  const download = async () => {
-    if (!fileUrl) return;
-    try {
-      const res = await fetch(fileUrl, { cache: "no-store" });
-      if (!res.ok) throw new Error("Network response was not ok");
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      // fallback: open file directly
-      window.open(fileUrl, "_blank", "noopener,noreferrer");
-    }
-  };
 
   return (
-    <section id="cv" className="w-full py-12">
+    <section aria-label={t("cv.title")} className="w-full py-12">
       <motion.div variants={textVariant()} className="mb-6 text-center">
         <p className={styles.sectionSubText}>{t('cv.subtitle')}</p>
         <h2 className={styles.sectionHeadText}>{t('cv.title')}</h2>
@@ -126,13 +108,15 @@ const CV = () => {
 
           {/* Download CTA centered (increased spacing) */}
           <div className="flex flex-col items-center gap-4 mb-6">
-            <button
-              onClick={download}
+            <a
+              href={fileUrl}
+              download={filename}
               className="inline-flex items-center gap-2 px-7 py-3 bg-[#915EFF] hover:bg-[#7b3be0] text-white rounded-md text-sm font-medium shadow-sm"
             >
               {/* ...existing svg... */}
               {t('cv.download')} — {lang === "en" ? "EN" : "FR"}
-            </button>
+            </a>
+            <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="text-secondary underline">{t("cv.open")}</a>
 
             {/* Filename under the button */}
             <div className="text-center">

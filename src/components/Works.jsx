@@ -33,7 +33,11 @@ const ProjectCard = ({
         <div className="relative w-full h-[230px] overflow-hidden rounded-xl">
           <img
             src={image}
-            alt="project_image"
+            alt={t(name)}
+            width="720"
+            height="460"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
 
@@ -162,7 +166,7 @@ const Works = () => {
                   <p className="text-white font-semibold">{t(ed.school)}</p>
                   <p className="text-secondary text-sm mt-1">{t(ed.degree)}</p>
                   <div className="flex items-center justify-between mt-2 text-xs text-secondary">
-                    <span>{ed.date}</span>
+                    <span>{t(ed.date)}</span>
                     <span>{t(ed.location)}</span>
                   </div>
                 </motion.div>

@@ -8,22 +8,24 @@
         "switch_to_light": "Switch to light mode",
         "switch_to_dark": "Switch to dark mode",
         "light_mode": "Light",
-        "dark_mode": "Dark"
+        "dark_mode": "Dark",
+        "menu": "Toggle menu"
     },
     "hero": {
         "greeting": "Hi, I'm",
-        "subtitle": "Full-Stack Developer specialized in Angular & Spring Boot",
-        "subtitle2": "Building scalable microservices and real-time dashboards"
+        "subtitle": "Full-Stack Software Engineer | Angular & Spring Boot",
+        "subtitle2": "Building maintainable business applications for the web and mobile",
+        "explore3d": "Explore in 3D"
     },
     "about": {
         "intro": "Introduction",
         "overview": "Overview.",
-        "description": "I'm a Full-Stack Developer specialized in Angular and Spring Boot with expertise in designing modular microservice architectures. Experienced in building interactive dashboards, implementing CI/CD pipelines, and developing Flutter mobile applications. I'm passionate about innovative projects and real-time data visualization. Quick learner and collaborative team player who creates efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!"
+        "description": "I'm a Full-Stack Software Engineer with over two years of experience building business applications with Java, Spring Boot, Angular, and React. My work spans REST APIs, role-based access management, PostgreSQL, MongoDB, Docker, and GitLab CI/CD. I've contributed to SaaS, energy management, and document management products, with a strong focus on maintainability and teamwork. I also develop mobile applications with Kotlin Multiplatform, Jetpack Compose, native Android, and Flutter, and have taught Java and native Android development to more than 40 students at IMSET."
     },
     "service": {
-        "fullstack": "Full-Stack Developer",
+        "fullstack": "Full-Stack Software Engineer",
         "frontend": "Frontend Engineer (Angular & React)",
-        "mobile": "Mobile Developer (Flutter)",
+        "mobile": "Mobile Developer (Kotlin & Flutter)",
         "backend": "Backend Engineer (Spring Boot & NestJS)"
     },
     "tech": {
@@ -51,21 +53,23 @@
         "symfony": "Symfony",
         "restapi": "REST API",
         "websocket": "WebSocket",
-        "java": "java"
+        "java": "Java",
+        "kotlin": "Kotlin",
+        "android": "Native Android",
+        "postgresql": "PostgreSQL",
+        "compose": "Jetpack Compose"
     },
     "exp": {
         "arsela": {
             "title": "Full-Stack Developer",
             "points": [
-                "Developing and maintaining scalable full-stack Angular & Spring Boot applications used in real-time energy management.",
-                "Building modern interactive dashboards using Ng-Zorro & ECharts for consumption analytics and KPI tracking.",
-                "Designing modular microservice architectures with clean domain separation and reusable components.",
-                "Implementing automated CI/CD pipelines using GitLab and Docker to streamline deployment and improve reliability.",
-                "Collaborating in Agile teams and participating in code reviews, sprint planning, and architectural discussions."
+                "Develop business applications using Angular, React, Java, and Spring Boot for real estate, energy, and document-management workflows.",
+                "Contribute to secure REST APIs, role-based access control, dashboards, and PostgreSQL/MongoDB data persistence.",
+                "Use Docker and GitLab CI/CD; participate in testing, code reviews, and Agile ceremonies."
             ]
         },
         "qcmed": {
-            "title": "Full-Stack Developer (Part-Time)",
+            "title": "Full-Stack Developer",
             "points": [
                 "Developed a full e-learning quiz platform for medical students preparing for residency exams.",
                 "Created a Flutter mobile app with intuitive UX, quiz sessions, correction mode, and progress tracking.",
@@ -91,6 +95,15 @@
                 "Integrated REST APIs built in Symfony while ensuring consistent UI/UX across modules.",
                 "Improved application performance and reduced load times with optimized components.",
                 "Contributed to GitLab CI/CD configurations for automated builds and quality checks."
+            ]
+        },
+        "imset": {
+            "title": "Java & Native Android Instructor (Part-time)",
+            "points": [
+                "Trained more than 40 students in Java and native Android development.",
+                "Designed practical workshops and supervised student projects.",
+                "Assessed technical skills through code reviews.",
+                "Promoted clean code, software architecture, and debugging best practices."
             ]
         }
     },
@@ -125,26 +138,26 @@
             ]
         },
         "qcmed_quiz": {
-      "name": "QCmed Quiz Platform",
-      "title": "QCmed Quiz Platform",
-      "description": "A comprehensive e-learning quiz platform for medical students featuring interactive quizzes, progress tracking, and real-time analytics.",
-      "features": [
-        "Interactive quiz sessions with timer",
-        "Progress tracking and statistics",
-        "Real-time performance analytics"
-      ]
-    },
-    "veo_carpool": {
-      "name": "Veo Carpool Platform",
-      "title": "Veo Carpool Platform", 
-      "description": "An internal carpooling platform for employees featuring ride matching, scheduling, progress tracking and real-time notifications.",
-      "features": [
-        "Ride matching and scheduling",
-        "Real-time notifications",
-        "User rating and feedback system"
-      ]
-    },
-    "portfolio_site": {
+            "name": "QCmed Quiz Platform",
+            "title": "QCmed Quiz Platform",
+            "description": "A comprehensive e-learning quiz platform for medical students featuring interactive quizzes, progress tracking, and real-time analytics.",
+            "features": [
+                "Interactive quiz sessions with timer",
+                "Progress tracking and statistics",
+                "Real-time performance analytics"
+            ]
+        },
+        "veo_carpool": {
+            "name": "Veo Carpool Platform",
+            "title": "Veo Carpool Platform",
+            "description": "An internal carpooling platform for employees featuring ride matching, scheduling, progress tracking and real-time notifications.",
+            "features": [
+                "Ride matching and scheduling",
+                "Real-time notifications",
+                "User rating and feedback system"
+            ]
+        },
+        "portfolio_site": {
             "name": "3D Developer Portfolio",
             "title": "3D Developer Portfolio",
             "description": "A personal showcase built with React, Tailwind CSS, and Three.js featuring immersive hero scenes, theme switching, and multilingual content.",
@@ -167,12 +180,12 @@
         "flutter": "flutter",
         "dart": "dart",
         "mongodb": "mongodb",
-         "nestjs": "nestjs",
-    "react": "react",
-    "javascript": "javascript", 
-    "symfony": "symfony",
-    "tailwind": "tailwindcss",
-    "threejs": "three.js"
+        "nestjs": "nestjs",
+        "react": "react",
+        "javascript": "javascript",
+        "symfony": "symfony",
+        "tailwind": "tailwindcss",
+        "threejs": "three.js"
     },
     "contact": {
         "get_in_touch": "Get in touch",
@@ -196,7 +209,8 @@
         "french": "Français",
         "download": "Download",
         "fallback": "If download fails, email me for help.",
-        "file": "File"
+        "file": "File",
+        "open": "Open PDF"
     },
     "experience": {
         "subtitle": "What I have done so far",
@@ -237,6 +251,15 @@
     },
     "profile": {
         "name": "Dhia Kacem",
-        "title": "Full-Stack Developer | Angular & Spring Boot"
+        "title": "Full-Stack Software Engineer | Angular & Spring Boot"
+    },
+    "dates": {
+        "arsela": "January 2025 – Present",
+        "imset": "September 2025 – February 2026",
+        "qcmed": "April 2024 – March 2025",
+        "sbi": "January 2024 – June 2024",
+        "veo": "June 2023 – August 2023",
+        "ims": "September 2021 – June 2024",
+        "issat": "September 2018 – June 2021"
     }
 }

@@ -8,22 +8,24 @@
         "switch_to_light": "Passer en mode clair",
         "switch_to_dark": "Passer en mode sombre",
         "light_mode": "Clair",
-        "dark_mode": "Sombre"
+        "dark_mode": "Sombre",
+        "menu": "Ouvrir ou fermer le menu"
     },
     "hero": {
         "greeting": "Salut, c'est",
-        "subtitle": "Développeur Full-Stack spécialisé en Angular & Spring Boot",
-        "subtitle2": "Création de microservices évolutifs et de tableaux de bord en temps réel"
+        "subtitle": "Ingénieur Full-Stack | Angular & Spring Boot",
+        "subtitle2": "Des applications métier maintenables pour le web et le mobile",
+        "explore3d": "Explorer en 3D"
     },
     "about": {
         "intro": "Introduction",
         "overview": "Aperçu.",
-        "description": "Je suis un développeur Full-Stack spécialisé en Angular et Spring Boot avec une expertise dans la conception d'architectures microservices modulaires. Expérimenté dans la création de tableaux de bord interactifs, la mise en place de pipelines CI/CD et le développement d'applications mobiles Flutter. Passionné par les projets innovants et la visualisation de données en temps réel. Rapide à apprendre et bon coéquipier, je crée des solutions efficaces, évolutives et conviviales pour résoudre des problèmes réels. Travaillons ensemble pour concrétiser vos idées !"
+        "description": "Je suis ingénieur logiciel Full-Stack avec plus de deux ans d'expérience dans le développement d'applications métier avec Java, Spring Boot, Angular et React. Mon travail couvre les API REST, la gestion des accès par rôle, PostgreSQL, MongoDB, Docker et GitLab CI/CD. Je contribue à des produits SaaS, de gestion énergétique et de gestion documentaire, avec une attention particulière à la maintenabilité et au travail d'équipe. Je développe également des applications mobiles avec Kotlin Multiplatform, Jetpack Compose, Android natif et Flutter, et j'ai formé plus de 40 étudiants au développement Java et Android natif à l'IMSET."
     },
     "service": {
-        "fullstack": "Développeur Full-Stack",
+        "fullstack": "Ingénieur logiciel Full-Stack",
         "frontend": "Ingénieur Frontend (Angular & React)",
-        "mobile": "Développeur Mobile (Flutter)",
+        "mobile": "Développeur Mobile (Kotlin & Flutter)",
         "backend": "Ingénieur Backend (Spring Boot & NestJS)"
     },
     "tech": {
@@ -51,21 +53,23 @@
         "symfony": "Symfony",
         "restapi": "REST API",
         "websocket": "WebSocket",
-        "java": "java"
+        "java": "Java",
+        "kotlin": "Kotlin",
+        "android": "Android natif",
+        "postgresql": "PostgreSQL",
+        "compose": "Jetpack Compose"
     },
     "exp": {
         "arsela": {
             "title": "Développeur Full-Stack",
             "points": [
-                "Développement et maintenance d'applications full-stack Angular & Spring Boot évolutives utilisées dans la gestion d'énergie en temps réel.",
-                "Création de tableaux de bord interactifs modernes utilisant Ng-Zorro & ECharts pour l'analyse de consommation et le suivi des KPI.",
-                "Conception d'architectures microservices modulaires avec séparation de domaine claire et composants réutilisables.",
-                "Mise en place de pipelines CI/CD automatisés avec GitLab et Docker pour simplifier le déploiement et améliorer la fiabilité.",
-                "Collaboration dans des équipes Agile et participation aux revues de code, planification de sprint et discussions architecturales."
+                "Développement d'applications métier avec Angular, React, Java et Spring Boot pour des flux immobiliers, énergétiques et documentaires.",
+                "Contribution à des API REST sécurisées, aux droits par rôle, aux tableaux de bord et à la persistance PostgreSQL/MongoDB.",
+                "Utilisation de Docker et GitLab CI/CD ; participation aux tests, revues de code et rituels Agile."
             ]
         },
         "qcmed": {
-            "title": "Développeur Full-Stack (Temps partiel)",
+            "title": "Développeur Full-Stack",
             "points": [
                 "Développement d'une plateforme complète de quiz e-learning pour les étudiants en médecine préparant les examens de spécialité.",
                 "Création d'une application mobile Flutter avec UX intuitive, sessions de quiz, mode correction et suivi des progrès.",
@@ -91,6 +95,15 @@
                 "Intégration d'API REST construites en Symfony tout en garantissant une UI/UX cohérente entre les modules.",
                 "Amélioration des performances de l'application et réduction des temps de chargement via composants optimisés.",
                 "Contribution aux configurations GitLab CI/CD pour les builds automatisés et vérifications de qualité."
+            ]
+        },
+        "imset": {
+            "title": "Formateur Java et Android natif (Temps partiel)",
+            "points": [
+                "Formation de plus de 40 étudiants en Java et développement Android natif.",
+                "Conception de travaux pratiques et encadrement de projets.",
+                "Évaluation des compétences via des revues de code.",
+                "Encadrement des bonnes pratiques : clean code, architecture logicielle et debugging."
             ]
         }
     },
@@ -196,7 +209,8 @@
         "french": "Français",
         "download": "Télécharger",
         "fallback": "Si le téléchargement échoue, envoyez-moi un e-mail pour obtenir de l'aide.",
-        "file": "Fichier"
+        "file": "Fichier",
+        "open": "Ouvrir le PDF"
     },
     "experience": {
         "subtitle": "Ce que j'ai accompli jusqu'ici",
@@ -237,6 +251,15 @@
     },
     "profile": {
         "name": "Kacem Dhia",
-        "title": "Développeur Full-Stack | Angular & Spring Boot"
+        "title": "Ingénieur Full-Stack | Angular & Spring Boot"
+    },
+    "dates": {
+        "arsela": "Janvier 2025 – Présent",
+        "imset": "Septembre 2025 – Février 2026",
+        "qcmed": "Avril 2024 – Mars 2025",
+        "sbi": "Janvier 2024 – Juin 2024",
+        "veo": "Juin 2023 – Août 2023",
+        "ims": "Septembre 2021 – Juin 2024",
+        "issat": "Septembre 2018 – Juin 2021"
     }
 }

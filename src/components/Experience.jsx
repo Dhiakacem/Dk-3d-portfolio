@@ -96,7 +96,7 @@ const ExperienceCard = ({ experience, index, isLeft }) => {
           {/* Header with icon and company */}
           <div className='flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4'>
             <motion.div
-              className='w-14 h-14 sm:w-16 sm:h-16 rounded-full flex-shrink-0 flex items-center justify-center'
+              className={`${experience.company_name === "IMSET" ? "w-24 h-14 sm:w-28 sm:h-16 rounded-lg" : "w-14 h-14 sm:w-16 sm:h-16 rounded-full"} flex-shrink-0 flex items-center justify-center`}
               style={{ background: experience.iconBg, boxShadow: "0 0 24px rgba(145, 94, 255, 0.4)" }}
               whileHover={{ scale: 1.15 }}
               transition={{ type: "spring", stiffness: 400, damping: 10, duration: 0.4 }}
@@ -104,7 +104,7 @@ const ExperienceCard = ({ experience, index, isLeft }) => {
               <img
                 src={experience.icon}
                 alt={experience.company_name}
-                className='w-8 h-8 sm:w-10 sm:h-10 object-contain'
+                className={`${experience.company_name === "IMSET" ? "w-20 h-12 sm:w-24 sm:h-14" : "w-8 h-8 sm:w-10 sm:h-10"} object-contain`}
               />
             </motion.div>
             <div className='flex-1 min-w-0'>
@@ -127,7 +127,7 @@ const ExperienceCard = ({ experience, index, isLeft }) => {
           >
             <p className='text-secondary text-xs sm:text-sm font-semibold flex items-center gap-2'>
               <span className='text-lg'>📅</span>
-              {experience.date}
+              {t(experience.date)}
             </p>
           </motion.div>
 
@@ -232,7 +232,7 @@ const Experience = () => {
           whileHover={{ scale: 1.05, y: -5 }}
           transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
         >
-          <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-[#915EFF]'>4</p>
+          <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-[#915EFF]'>{experiences.length}</p>
           <p className='text-secondary text-xs sm:text-sm mt-2'>{t('stats.companies')}</p>
         </motion.div>
         <motion.div
