@@ -13,6 +13,13 @@ try {
     ['desktop', { width: 1280, height: 800 }, false],
   ]) {
     const context = await browser.newContext({ viewport, isMobile, hasTouch: isMobile, acceptDownloads: true, reducedMotion: isMobile ? 'reduce' : 'no-preference' });
+    let simulatedEmailStatus = 200;
+    const mockedEmailRequests = [];
+    await context.route('https://api.emailjs.com/api/v1.0/email/send', async route => {
+      mockedEmailRequests.push(route.request().postDataJSON());
+      await new Promise(resolve => setTimeout(resolve, 250));
+      await route.fulfill({ status: simulatedEmailStatus, contentType: 'text/plain', body: simulatedEmailStatus === 200 ? 'OK' : 'Test failure' });
+    });
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -105,6 +112,31 @@ try {
     } else {
       await page.screenshot({ path: join(tmpdir(), 'dhiakacem-projects-desktop.png'), animations: 'disabled' });
     }
+    const contactForm = page.locator('#contact').locator('xpath=following::form[1]');
+    await contactForm.scrollIntoViewIfNeeded();
+    assert.equal(await contactForm.evaluate(form => form.checkValidity()), false, `${label}: empty contact form should be invalid`);
+    const fillContactForm = async () => {
+      await contactForm.getByLabel(/name|nom/i).fill('Portfolio smoke test');
+      await contactForm.getByLabel(/email/i).fill('smoke-test@example.com');
+      await contactForm.getByLabel(/message|message/i).fill('Automated form check. Email endpoint is mocked; this message will not be sent.');
+    };
+    await fillContactForm();
+    const contactSubmit = contactForm.locator('button[type="submit"]');
+    await contactSubmit.click();
+    assert.equal(await contactSubmit.isDisabled(), true, `${label}: submit button should lock while sending`);
+    await page.getByRole('status').filter({ hasText: /Thank you|Merci/ }).waitFor();
+    assert.equal(await contactSubmit.isDisabled(), false);
+    assert.equal(mockedEmailRequests.length, 1);
+    assert.ok(mockedEmailRequests[0].service_id && mockedEmailRequests[0].template_id && mockedEmailRequests[0].user_id);
+    assert.equal(mockedEmailRequests[0].template_params.name, 'Portfolio smoke test');
+    assert.equal(mockedEmailRequests[0].template_params.email, 'smoke-test@example.com');
+    assert.match(mockedEmailRequests[0].template_params.message, /will not be sent/);
+    assert.equal(await contactForm.getByLabel(/name|nom/i).inputValue(), '', `${label}: success should reset form`);
+    simulatedEmailStatus = 500;
+    await fillContactForm();
+    await contactSubmit.click();
+    await page.getByRole('alert').filter({ hasText: /something went wrong|mal tourné/ }).waitFor();
+    assert.equal(mockedEmailRequests.length, 2);
     const cvSection = page.locator('[aria-label="Download CV"], [aria-label="Télécharger le CV"]');
     await cvSection.scrollIntoViewIfNeeded();
     for (const [lang, filename] of [[isMobile ? 'Anglais' : 'English', 'DHIA_KACEM_EN.pdf'], ['Français', 'KACEM_DHIA_FR.pdf']]) {

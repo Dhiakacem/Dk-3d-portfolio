@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -8,8 +8,11 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { useTranslation } from "react-i18next";
 
+const emailServiceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+const emailTemplateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+const emailPublicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,61 +20,49 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
   const { t } = useTranslation();
 
-  // Initialize EmailJS on component mount
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
+    if (emailPublicKey) emailjs.init(emailPublicKey);
   }, []);
 
   const handleChange = (e) => {
     const { target } = e;
     const { name, value } = target;
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    setForm((current) => ({ ...current, [name]: value }));
+    setSubmissionStatus(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSubmissionStatus(null);
 
-    // Get current date/time for the template
-    const now = new Date().toLocaleString();
+    try {
+      if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+        throw new Error("Contact form email service is not configured.");
+      }
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      await emailjs.send(
+        emailServiceId,
+        emailTemplateId,
         {
-          // Match these keys to your EmailJS template variable names
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          time: now,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+          time: new Date().toLocaleString(),
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert(t('contact.success'));
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error("EmailJS Error:", error);
-
-          alert(t('contact.error'));
-        }
+        emailPublicKey
       );
+      setSubmissionStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setSubmissionStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -86,7 +77,6 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>{t('contact.title')}</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
@@ -95,6 +85,9 @@ const Contact = () => {
             <input
               type='text'
               name='name'
+              autoComplete='name'
+              maxLength={100}
+              required
               value={form.name}
               onChange={handleChange}
               placeholder={t('contact.name_placeholder')}
@@ -106,6 +99,9 @@ const Contact = () => {
             <input
               type='email'
               name='email'
+              autoComplete='email'
+              maxLength={254}
+              required
               value={form.email}
               onChange={handleChange}
               placeholder={t('contact.email_placeholder')}
@@ -117,6 +113,8 @@ const Contact = () => {
             <textarea
               rows={7}
               name='message'
+              maxLength={5000}
+              required
               value={form.message}
               onChange={handleChange}
               placeholder={t('contact.message_placeholder')}
@@ -124,10 +122,22 @@ const Contact = () => {
             />
           </label>
 
+          {submissionStatus && (
+            <p
+              role={submissionStatus === "error" ? "alert" : "status"}
+              aria-live={submissionStatus === "error" ? "assertive" : "polite"}
+              className={`-mt-4 rounded-lg border px-4 py-3 text-sm ${submissionStatus === "success" ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-200" : "border-rose-400/30 bg-rose-400/10 text-rose-200"}`}
+            >
+              {t(`contact.${submissionStatus}`)}
+            </p>
+          )}
+
           <div className='flex justify-end'>
             <button
               type='submit'
-              className='bg-tertiary dark:bg-tertiary-dark py-3 px-8 rounded-xl outline-none text-white font-bold shadow-md shadow-primary hover:bg-[#2d1b4e] transition-colors duration-300'
+              disabled={loading}
+              aria-busy={loading}
+              className='bg-tertiary dark:bg-tertiary-dark py-3 px-8 rounded-xl outline-none text-white font-bold shadow-md shadow-primary hover:bg-[#2d1b4e] transition-colors duration-300 disabled:cursor-wait disabled:opacity-60'
             >
               {loading ? t('contact.sending') : t('contact.send')}
             </button>
