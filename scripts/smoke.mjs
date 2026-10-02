@@ -34,7 +34,7 @@ try {
     await page.locator('#about').waitFor();
     assert.match(await page.locator('#about').locator('..').innerText(), /PostgreSQL/);
     assert.match(await page.locator('#experience').locator('..').innerText(), /IMSET/);
-    const imsetLogo = page.locator('img[alt="IMSET"]');
+    const imsetLogo = page.locator('img[alt^="IMSET"]');
     await imsetLogo.scrollIntoViewIfNeeded();
     assert.ok(await imsetLogo.evaluate(img => img.complete && img.naturalWidth > 0));
     if (isMobile) {
@@ -54,6 +54,8 @@ try {
       const themeBefore = await page.locator('html').getAttribute('class');
       await page.getByRole('button', { name: /mode/ }).click();
       assert.notEqual(await page.locator('html').getAttribute('class'), themeBefore);
+      await page.getByRole('button', { name: /mode/ }).click();
+      assert.equal(await page.locator('html').getAttribute('class'), themeBefore);
       await page.screenshot({ path: join(tmpdir(), 'dhiakacem-mobile.png') });
     } else {
       await page.getByRole('group', { name: 'Language' }).getByRole('button', { name: 'FR', exact: true }).click();
@@ -135,8 +137,14 @@ try {
     simulatedEmailStatus = 500;
     await fillContactForm();
     await contactSubmit.click();
-    await page.getByRole('alert').filter({ hasText: /something went wrong|mal tourné/ }).waitFor();
+    const contactToast = page.getByRole('alert').filter({ hasText: /Message not sent|Message non envoyé/ });
+    await contactToast.waitFor();
     assert.equal(mockedEmailRequests.length, 2);
+    if (isMobile) await page.screenshot({ path: join(tmpdir(), 'dhiakacem-contact-toast-mobile.png'), animations: 'disabled' });
+    assert.ok(await contactToast.getByRole('button', { name: /dismiss notification|fermer la notification/i }).isVisible());
+    await contactToast.getByRole('button', { name: /dismiss notification|fermer la notification/i }).click();
+    await contactToast.waitFor({ state: 'detached' });
+    assert.equal(await page.getByRole('alert').count(), 0);
     const cvSection = page.locator('[aria-label="Download CV"], [aria-label="Télécharger le CV"]');
     await cvSection.scrollIntoViewIfNeeded();
     for (const [lang, filename] of [[isMobile ? 'Anglais' : 'English', 'DHIA_KACEM_EN.pdf'], ['Français', 'KACEM_DHIA_FR.pdf']]) {

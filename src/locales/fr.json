@@ -217,15 +217,18 @@
         "get_in_touch": "Entrons en contact",
         "title": "Contact.",
         "name_label": "Votre nom",
-        "name_placeholder": "Quel est votre joli nom ?",
+        "name_placeholder": "Votre nom",
         "email_label": "Votre email",
-        "email_placeholder": "Quelle est votre adresse ?",
+        "email_placeholder": "vous@exemple.com",
         "message_label": "Votre message",
-        "message_placeholder": "Que souhaitez-vous dire ?",
+        "message_placeholder": "Parlez-moi de votre projet, de vos besoins ou du sujet dont vous souhaitez discuter.",
         "sending": "Envoi...",
         "send": "Envoyer",
+        "success_title": "Message envoyé",
         "success": "Merci. Je vous répondrai dès que possible.",
-        "error": "Oups, quelque chose a mal tourné. Veuillez réessayer."
+        "error_title": "Message non envoyé",
+        "error": "Impossible d’envoyer votre message. Réessayez ou contactez-moi directement par e-mail.",
+        "dismiss_notification": "Fermer la notification"
     },
     "cv": {
         "subtitle": "Curriculum Vitae",

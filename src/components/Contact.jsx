@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
@@ -21,7 +21,14 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const reduceMotion = useReducedMotion();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!submissionStatus) return undefined;
+    const timeout = window.setTimeout(() => setSubmissionStatus(null), 6500);
+    return () => window.clearTimeout(timeout);
+  }, [submissionStatus]);
 
   useEffect(() => {
     if (emailPublicKey) emailjs.init(emailPublicKey);
@@ -122,16 +129,6 @@ const Contact = () => {
             />
           </label>
 
-          {submissionStatus && (
-            <p
-              role={submissionStatus === "error" ? "alert" : "status"}
-              aria-live={submissionStatus === "error" ? "assertive" : "polite"}
-              className={`-mt-4 rounded-lg border px-4 py-3 text-sm ${submissionStatus === "success" ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-200" : "border-rose-400/30 bg-rose-400/10 text-rose-200"}`}
-            >
-              {t(`contact.${submissionStatus}`)}
-            </p>
-          )}
-
           <div className='flex justify-end'>
             <button
               type='submit'
@@ -151,6 +148,40 @@ const Contact = () => {
       >
         <DeferredScene kind="earth" />
       </motion.div>
+
+      <AnimatePresence>
+        {submissionStatus && (
+          <motion.div
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 14, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.98 }}
+            transition={{ duration: reduceMotion ? 0.12 : 0.24, ease: "easeOut" }}
+            role={submissionStatus === "error" ? "alert" : "status"}
+            aria-live={submissionStatus === "error" ? "assertive" : "polite"}
+            className={`fixed inset-x-4 bottom-4 z-[1100] flex items-start gap-3 rounded-2xl border bg-white p-4 text-slate-900 shadow-[0_16px_50px_rgba(15,23,42,0.22)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:w-[min(26rem,calc(100vw-3rem))] dark:bg-[#10162b] dark:text-white ${submissionStatus === "success" ? "border-emerald-200 dark:border-emerald-400/30" : "border-rose-200 dark:border-rose-400/30"}`}
+          >
+            <span className={`mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full ${submissionStatus === "success" ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300" : "bg-rose-100 text-rose-700 dark:bg-rose-400/15 dark:text-rose-300"}`} aria-hidden="true">
+              {submissionStatus === "success" ? (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5"><path d="m5 12 4 4L19 6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5"><path d="M12 8v4m0 4h.01M10.3 3.9 2.7 17a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              )}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="font-semibold">{t(`contact.${submissionStatus}_title`)}</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{t(`contact.${submissionStatus}`)}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSubmissionStatus(null)}
+              aria-label={t("contact.dismiss_notification")}
+              className="-mr-1 -mt-1 rounded-lg p-1.5 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-white/10 dark:hover:text-white"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4"><path d="m6 6 12 12M18 6 6 18" strokeWidth="2" strokeLinecap="round" /></svg>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

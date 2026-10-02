@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const ExperienceCard = ({ experience, index, isLeft }) => {
   const { t } = useTranslation();
+  const isImset = experience.company_name === "IMSET";
 
   return (
     <motion.div
@@ -96,15 +97,14 @@ const ExperienceCard = ({ experience, index, isLeft }) => {
           {/* Header with icon and company */}
           <div className='flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4'>
             <motion.div
-              className={`${experience.company_name === "IMSET" ? "w-24 h-14 sm:w-28 sm:h-16 rounded-lg" : "w-14 h-14 sm:w-16 sm:h-16 rounded-full"} flex-shrink-0 flex items-center justify-center`}
-              style={{ background: experience.iconBg, boxShadow: "0 0 24px rgba(145, 94, 255, 0.4)" }}
+              className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#915EFF]/20 bg-white shadow-[0_8px_24px_rgba(145,94,255,0.18)] sm:h-16 sm:w-16"
               whileHover={{ scale: 1.15 }}
               transition={{ type: "spring", stiffness: 400, damping: 10, duration: 0.4 }}
             >
               <img
                 src={experience.icon}
-                alt={experience.company_name}
-                className={`${experience.company_name === "IMSET" ? "w-20 h-12 sm:w-24 sm:h-14" : "w-8 h-8 sm:w-10 sm:h-10"} object-contain`}
+                alt={`${experience.company_name} logo`}
+                className={`h-full ${isImset ? "w-8 flex-none object-cover object-left" : "w-full object-contain p-3"}`}
               />
             </motion.div>
             <div className='flex-1 min-w-0'>
