@@ -15,6 +15,7 @@ const ProjectCard = ({
   description,
   tags,
   image,
+  imageFit = "cover",
   source_code_link,
   showGithub = true,
 }) => {
@@ -28,7 +29,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 400,
         }}
-        className="bg-primary-light/70 dark:bg-primary-dark/70 border border-white/5 p-5 rounded-2xl w-full h-full shadow-xl transition-colors duration-300 ease-out"
+        className="group bg-primary-light/70 dark:bg-primary-dark/70 border border-white/5 p-5 rounded-2xl w-full h-full shadow-xl transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[#915EFF]/40 motion-safe:hover:shadow-[0_20px_48px_rgba(145,94,255,0.16)]"
       >
         <div className="relative w-full h-[230px] overflow-hidden rounded-xl">
           <img
@@ -38,7 +39,7 @@ const ProjectCard = ({
             height="460"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover"
+            className={`w-full h-full transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.035] ${imageFit === "contain" ? "object-contain bg-[#F8FAFC]" : "object-cover"}`}
           />
 
           {showGithub && (

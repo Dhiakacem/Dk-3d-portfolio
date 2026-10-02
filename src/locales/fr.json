@@ -57,7 +57,8 @@
         "kotlin": "Kotlin",
         "android": "Android natif",
         "postgresql": "PostgreSQL",
-        "compose": "Jetpack Compose"
+        "compose": "Jetpack Compose",
+        "sqlite": "SQLite"
     },
     "exp": {
         "arsela": {
@@ -127,6 +128,26 @@
                 "Fonctionnalité hors ligne"
             ]
         },
+        "archivefy_mobile": {
+            "name": "Application mobile Archivefy",
+            "title": "Application mobile Archivefy",
+            "description": "Application mobile Kotlin pour consulter et organiser les documents Archivefy, connectée à un backend Java avec persistance PostgreSQL.",
+            "features": [
+                "Consultation et organisation des documents sur mobile",
+                "Intégration du backend Java",
+                "Persistance des données avec PostgreSQL"
+            ]
+        },
+        "qundis_mobile": {
+            "name": "Application mobile QUNDIS",
+            "title": "Application mobile QUNDIS",
+            "description": "Projet mobile Kotlin et Jetpack Compose pour consulter les consommations de chauffage et d'eau, avec SQLite pour le stockage local.",
+            "features": [
+                "Visualisation des consommations de chauffage et d'eau",
+                "Interface mobile en Jetpack Compose",
+                "Stockage local avec SQLite"
+            ]
+        },
         "archivefy": {
             "name": "Archivefy Web Platform",
             "title": "Archivefy Web Platform",
@@ -185,7 +206,12 @@
         "javascript": "javascript",
         "symfony": "symfony",
         "tailwind": "tailwindcss",
-        "threejs": "three.js"
+        "threejs": "three.js",
+        "kotlin": "kotlin",
+        "java": "java",
+        "postgresql": "postgresql",
+        "compose": "jetpack-compose",
+        "sqlite": "sqlite"
     },
     "contact": {
         "get_in_touch": "Entrons en contact",

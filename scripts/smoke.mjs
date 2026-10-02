@@ -81,6 +81,30 @@ try {
       await page.waitForTimeout(600);
       assert.ok(await slider.evaluate(el => el.scrollLeft) > sliderBefore);
     }
+    const projectCards = page.locator('#projects .snap-x > div');
+    assert.equal(await projectCards.count(), 8);
+    const projectNames = await projectCards.locator('h3').allTextContents();
+    assert.match(projectNames[0], /Abronubes/i);
+    assert.match(projectNames[1], /Abronubes/i);
+    assert.match(projectNames[2], /Archivefy/i);
+    assert.match(projectNames[3], /QUNDIS/i);
+    for (const [index, assetName] of [[2, 'archivefy-mobile'], [3, 'qundis-mobile'], [5, 'qcmed-app']]) {
+      const card = projectCards.nth(index);
+      await card.scrollIntoViewIfNeeded();
+      const projectImage = card.locator('img').first();
+      await projectImage.evaluate(img => img.decode());
+      assert.match(await projectImage.getAttribute('src'), new RegExp(assetName));
+    }
+    assert.match(await projectCards.nth(2).innerText(), /kotlin/i);
+    assert.match(await projectCards.nth(2).innerText(), /postgresql/i);
+    assert.match(await projectCards.nth(3).innerText(), /jetpack-compose/i);
+    assert.match(await projectCards.nth(3).innerText(), /sqlite/i);
+    if (isMobile) {
+      assert.ok(await page.locator('#projects .snap-x').evaluate(el => el.scrollWidth > el.clientWidth));
+      await page.screenshot({ path: join(tmpdir(), 'dhiakacem-projects-mobile.png'), animations: 'disabled' });
+    } else {
+      await page.screenshot({ path: join(tmpdir(), 'dhiakacem-projects-desktop.png'), animations: 'disabled' });
+    }
     const cvSection = page.locator('[aria-label="Download CV"], [aria-label="Télécharger le CV"]');
     await cvSection.scrollIntoViewIfNeeded();
     for (const [lang, filename] of [[isMobile ? 'Anglais' : 'English', 'DHIA_KACEM_EN.pdf'], ['Français', 'KACEM_DHIA_FR.pdf']]) {

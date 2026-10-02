@@ -32,10 +32,12 @@ import sbi from "./company/sbi.png";
 import veo from "./company/veo.png";
 import qcmed from "./company/qcmed.png";
 import archivefy from "./archivefy.webp";
+import archivefyMobile from "./archivefy-mobile.webp";
+import qundisMobile from "./qundis-mobile.webp";
+import qcmedApp from "./qcmed-app.webp";
 import hgh from "./hgh.webp";
 import mobiles from "./mobile.jpg";
 import java from "./tech/java.png";
-import QcmedProjects from "./QcMedProject.webp";
 import noz from "./noz.webp";
 import portfolio from "./portfolio.webp";
 
@@ -72,10 +74,12 @@ export {
   avatar,
   qcmed,
   archivefy,
+  archivefyMobile,
+  qundisMobile,
+  qcmedApp,
   mobiles,
   hgh,
   java,
-  QcmedProjects,
   noz,
   portfolio
 };

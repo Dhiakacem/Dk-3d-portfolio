@@ -10,7 +10,12 @@ function flatten(value, prefix = '') {
 const en = JSON.parse(readFileSync('src/locales/en.json', 'utf8'));
 const fr = JSON.parse(readFileSync('src/locales/fr.json', 'utf8'));
 assert.deepEqual(flatten(en).sort(), flatten(fr).sort(), 'English and French translation keys differ');
-for (const key of ['about.description', 'exp.imset.title', 'exp.imset.points.3', 'tech.kotlin', 'tech.compose', 'tech.postgresql', 'tech.gitlab']) {
+for (const key of [
+  'about.description', 'exp.imset.title', 'exp.imset.points.3',
+  'tech.kotlin', 'tech.compose', 'tech.postgresql', 'tech.gitlab', 'tech.sqlite',
+  'project.archivefy_mobile.description', 'project.qundis_mobile.description',
+  'tag.kotlin', 'tag.java', 'tag.postgresql', 'tag.compose', 'tag.sqlite',
+]) {
   const parts = key.split('.');
   for (const [locale, dictionary] of [['en', en], ['fr', fr]]) {
     const value = parts.reduce((item, part) => item?.[part], dictionary);
